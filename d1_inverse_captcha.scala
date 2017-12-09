@@ -32,5 +32,19 @@ def reviewSequence(seq: Seq[Int]): Int = {
     // return value
     sum
 }
-
+// run regular version
 println(reviewSequence(input))
+
+// alternative solution using tail recursion - could move acc inside
+def accumulateSequence(seq: Seq[Int], acc: Int): Int = {
+    val bookends = if (seq.head == seq.last) {seq.head} else 0
+    seq match {
+        case x :: Seq() => acc + bookends
+        case x :: xs => { 
+            if (x == xs.head) seqFunc(xs, acc + x)
+            else seqFunc(xs, acc)
+        }
+    } 
+}
+// run tail rec version
+println(accumulateSequence(input, 0))
