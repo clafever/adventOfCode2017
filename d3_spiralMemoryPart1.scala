@@ -25,8 +25,8 @@ def squareIsNthOdd(s: Int): Int = {
 }
 // do some computations
 val ns = nextOddSquare(s)                       // what is the nearest odd square (higher)
-val distance = ns-s                           // how far is s from that square in steps
-val width = sqrt(ns)-1                        // corner to corner distance when stepping
+val distance = ns-s                             // how far is s from that square in steps
+val width = sqrt(ns)-1                          // corner to corner distance when stepping
 val remainder = distance % width                // how many steps remaining after all turns
 val thickness = (width)/2                       // how much mass  is between the "middle" of a leg and the corner
 val perimeterMoves = abs(thickness-remainder)   // now we get relative position leftover to get to the "middle of the leg"
